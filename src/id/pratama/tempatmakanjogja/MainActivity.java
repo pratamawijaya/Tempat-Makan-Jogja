@@ -12,8 +12,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -45,9 +51,16 @@ public class MainActivity extends FragmentActivity implements OnInfoWindowClickL
 		setContentView(R.layout.activity_main);
 		json = new JSONHelper();
 
-		new AsynTaskMain().execute();
+		if (isKonekInternet())
+		{
+			new AsynTaskMain().execute();
 
-		setupMapIfNeeded();
+			setupMapIfNeeded();
+
+		} else
+		{
+			ShowAlert(this, "Warning", "Anda tidak tersambung dengan internet");
+		}
 	}
 
 	private void setupMapIfNeeded()
@@ -63,6 +76,51 @@ public class MainActivity extends FragmentActivity implements OnInfoWindowClickL
 				setupMap();
 			}
 		}
+
+	}
+
+	/*
+	 * Cek internet connection
+	 */
+	private boolean isKonekInternet()
+	{
+		ConnectivityManager connectivityManager = (ConnectivityManager) this
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivityManager != null)
+		{
+			NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+			if (info != null)
+			{
+				for (int i = 0; i < info.length; i++)
+				{
+					if (info[i].getState() == NetworkInfo.State.CONNECTED)
+					{
+						return true;
+					}
+				}
+			}
+
+		}
+		return false;
+	}
+
+	public void ShowAlert(Context context, String title, String message)
+	{
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener()
+		{
+
+			@Override
+			public void onClick(DialogInterface dialog, int which)
+			{
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		alertDialog.show();
 
 	}
 
