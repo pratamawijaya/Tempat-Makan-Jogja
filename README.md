@@ -9,7 +9,7 @@ http://pratamawijaya.com/programming/tutorial-membangun-aplikasi-android-menggun
 Cara Menggunakan project ini . . 
 
 1. Download project sebagai zip ataupun clone menggunakan Git
-2. Import kedalam eclipse
+2. Import kedalam eclipse, (File> Import > Android > Existing Android Code)
 3. Setting lokasi google play service lib pada menu properties project anda
 4. Ganti API KEY pada file manifest.xml
 5. Cek pada project properties > Java Build Path > Order and Export  Pastikan pilihan Android Private Libraries tercentang
