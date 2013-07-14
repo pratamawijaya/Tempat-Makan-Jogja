@@ -96,14 +96,6 @@ public class DirectionActivity extends FragmentActivity implements OnMyLocationC
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.direction, menu);
-		return true;
-	}
-
-	@Override
 	protected void onResume()
 	{
 		// TODO Auto-generated method stub

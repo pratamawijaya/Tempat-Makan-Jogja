@@ -13,11 +13,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -79,23 +75,16 @@ public class MainActivity extends FragmentActivity implements OnInfoWindowClickL
 
 	private void moveToMyLocation()
 	{
-		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		Criteria criteria = new Criteria();
 
-		Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-		if (location != null)
+		if (map.getMyLocation() != null)
 		{
-			map.animateCamera(CameraUpdateFactory.newLatLngZoom(
-					new LatLng(location.getLatitude(), location.getLongitude()), 13));
-		}
-	}
+			Toast.makeText(this, "" + map.getMyLocation().getLatitude(), Toast.LENGTH_SHORT).show();
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+			map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(map.getMyLocation().getLatitude(), map
+					.getMyLocation().getLongitude()), 15));
+
+		}
+
 	}
 
 	@Override
