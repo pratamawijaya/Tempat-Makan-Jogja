@@ -12,6 +12,11 @@ Cara Menggunakan project ini . .
 2. Import kedalam eclipse
 3. Setting lokasi google play service lib pada menu properties project anda
 4. Ganti API KEY pada file manifest.xml
+5. Cek pada project properties > Java Build Path > Order and Export  Pastikan pilihan Android Private Libraries tercentang
+
+Disarankan langsung test ke Device..
+
+Google Maps V2 secara Official tidak support emulator android :) 
 
 
 

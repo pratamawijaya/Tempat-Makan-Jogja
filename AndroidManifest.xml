@@ -26,7 +26,7 @@
 		android:theme="@style/AppTheme" >
 		<meta-data
 			android:name="com.google.android.maps.v2.API_KEY"
-			android:value="AIzaSyCEF2Lrx3Mylky9tE6DPyMyyNM8hVUJ194" />
+			android:value="API_KEY_MU" />
 		<activity
 			android:name="id.pratama.tempatmakanjogja.MainActivity"
 			android:label="@string/app_name" >
