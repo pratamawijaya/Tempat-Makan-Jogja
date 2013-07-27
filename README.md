@@ -15,6 +15,7 @@ Cara Menggunakan project ini . .
 5. Cek pada project properties > Java Build Path > Order and Export  Pastikan pilihan Android Private Libraries tercentang
 
 Untuk yang ingin menjalankan project ke emulator
+
 Install a compatible version of the Google APIs platform.
 
 If you want to test your app on the emulator, expand the directory for Android 4.2.2 (API 17) or a higher version, select Google APIs, and install it. Then create a new AVD with Google APIs as the platform target.
