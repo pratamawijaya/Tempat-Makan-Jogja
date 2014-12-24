@@ -1,5 +1,9 @@
 About
 ==========
-Ini projectnya sama dengan yang terdahulu, namun dibuild tidak lagi menggunakan Eclipse namun Android Studio
 
-untuk yang masih mau melihat versi eclipsenya, cek ke branch eclipse, branch master hanya untuk yang versi Android Studio
+Container untuk project Tempat Makan Jogja
+
+dibuild menggunakan
+- Android Studio 1.0.2
+- buildToolsVersion 21.1.2
+- targetSdkVersion 21
